@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Préstamo</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background: linear-gradient(90deg,
+                    rgba(34, 193, 195, 1) 0%,
+                    rgba(253, 187, 45, 1) 100%);
+            font-family: Arial, sans-serif;
+        }
+
+        .form-container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="number"],
+        .form-group textarea,
+        .form-group select {
+            border-radius: 5px;
+            border: 1px solid #ced4da;
+            padding: 0.5rem;
+        }
+
+        .form-group input[type="text"]:focus,
+        .form-group input[type="email"]:focus,
+        .form-group input[type="number"]:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: #80bdff;
+            outline: 0;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            transition: background-color 0.15s, border-color 0.15s;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #343a40;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    </header>
+    <div class="container form-container">
+        <h2 class="mb-4 text-center">Solicitud de Préstamo</h2>
+        <div class="text-center mb-4">
+            <img src="img/img.png" alt="Descripción de la imagen" class="img-fluid" style="max-width: 80%;">
+        </div>
+        <form class="needs-validation" novalidate>
+            <div class="form-row">
+                <div class="col-md-4 mb-3">
+                    <label for="nombre">Nombre completo <i class="fas fa-user"></i></label>
+                    <input type="text" class="form-control" id="nombre" placeholder="Ingresa tu nombre completo"
+                        required>
+                    <div class="invalid-feedback">Por favor ingresa tu nombre completo.</div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="email">Correo electrónico <i class="fas fa-envelope"></i></label>
+                    <input type="email" class="form-control" id="email" placeholder="Ingresa tu correo electrónico"
+                        required>
+                    <div class="invalid-feedback">Por favor ingresa un correo electrónico válido.</div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="cantidad">Cantidad solicitada (COP) <i class="fas fa-money-bill-wave"></i></label>
+                    <input type="number" class="form-control" id="cantidad"
+                        placeholder="Mínimo: 1.000.000 Máximo: 100.000.000" min="1000000" max="100000000" required>
+                    <div class="invalid-feedback">Por favor ingresa una cantidad entre 1.000.000 y 100.000.000 COP.
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-6 mb-3">
+                    <label for="motivo">Motivo del préstamo <i class="fas fa-comment-alt"></i></label>
+                    <textarea class="form-control" id="motivo" rows="3" placeholder="Describe el motivo del préstamo"
+                        required></textarea>
+                    <div class="invalid-feedback">Por favor describe el motivo del préstamo.</div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="plazo">Plazo del préstamo <i class="fas fa-calendar-alt"></i></label>
+                    <select class="form-control" id="plazo" required>
+                        <option value="">Selecciona un plazo</option>
+                        <option value="6 meses">6 meses</option>
+                        <option value="12 meses">12 meses</option>
+                        <option value="18 meses">18 meses</option>
+                    </select>
+                    <div class="invalid-feedback">Por favor selecciona un plazo.</div>
+                </div>
+            </div>
+            <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="terminos" required>
+                <label class="form-check-label" for="terminos">Acepto los términos y condiciones</label>
+                <div class="invalid-feedback">Debes aceptar los términos y condiciones.</div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Enviar solicitud</button>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Validación de formulario
+        (function () {
+            'use strict';
+            window.addEventListener('load', function () {
+                var forms = document.getElementsByClassName('needs-validation');
+                Array.prototype.filter.call(forms, function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        } else {
+                            
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+        })();
+    </script>
+</body>
+
+</html>
