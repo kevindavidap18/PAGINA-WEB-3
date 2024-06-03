@@ -1,0 +1,47 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #2d3436; /* Gris oscuro */
+    color: #dfe6e9; /* Azul claro */
+    padding-top: 20px;
+  }
+  
+  .container {
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: #34495e; /* Azul grisáceo */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(45, 52, 54, 0.1); /* Gris oscuro con transparencia */
+  }
+  
+  header {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #ff7675; /* Rojo coral */
+  }
+  
+  footer {
+    text-align: center;
+    margin-top: 20px;
+    color: #ff7675; /* Rojo coral */
+  }
+  
+  .btn-primary {
+    background-color: #6c5ce7; /* Púrpura oscuro */
+    border-color: #6c5ce7; /* Púrpura oscuro */
+  }
+  
+  .btn-primary:hover {
+    background-color: #d63031; /* Rojo oscuro */
+    border-color: #d63031; /* Rojo oscuro */
+  }
+  
+  .form-check-input:checked {
+    background-color: #0984e3; /* Azul brillante */
+  }
+  
+  .form-check-input:checked + .form-check-label {
+    color: #0984e3; /* Azul brillante */
+  }
+  
+  
